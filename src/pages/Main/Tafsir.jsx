@@ -16,6 +16,7 @@ const Tafsir = () => {
       page: "Tafsir",
     });
   }, []);
+  
   useEffect(() => {
     dispatch(getTafsir(openSurat.nomor));
   }, []);

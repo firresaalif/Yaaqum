@@ -18,13 +18,6 @@ const Surat = () => {
   useEffect(() => {
     dispatch(handleSearchSurat(''));
   }, []);
-
-  ReactGA.event({
-    category : item.name,
-    action: "test action",
-    label: "test label",
-    value: item.price ,
-  });
   
   useEffect(() => {
     const newSurat = allSurat?.map((item) => {

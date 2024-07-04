@@ -15,11 +15,6 @@ const Doa = () => {
     });
   }, []);
 
- 
-  useEffect(() => {
-    dispatch(handleSearchDoa(''));
-  }, []);
-
   useEffect(() => {
     const newDoas = allDoas?.map((doa) => {
       return doa;

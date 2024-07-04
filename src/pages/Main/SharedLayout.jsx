@@ -24,13 +24,12 @@ const SharedLayout = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  
-
   useEffect(() => {
     ReactGA.event("page_view", {
       page: "SharedLayout",
     });
   }, []);
+  
   useEffect(() => {
     dispatch(getSurat());
     dispatch(getDoa());
