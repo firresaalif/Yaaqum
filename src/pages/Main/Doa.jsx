@@ -15,12 +15,7 @@ const Doa = () => {
     });
   }, []);
 
-  ReactGA.event({
-    category : item.name,
-    action: "test action",
-    label: "test label",
-    value: item.price ,
-  });
+ 
   useEffect(() => {
     dispatch(handleSearchDoa(''));
   }, []);
