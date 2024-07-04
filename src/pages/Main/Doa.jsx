@@ -2,10 +2,18 @@ import { useEffect, useState } from 'react';
 import { Footer, Loading, OneDoa, SearchBar } from '../../components';
 import { handleSearchDoa, searchDoa } from '../../features/doa';
 import { useDispatch, useSelector } from 'react-redux';
+import ReactGA from "react-ga4";
 
 const Doa = () => {
   const { doas, isLoading, search, allDoas } = useSelector((store) => store.doa);
   const dispatch = useDispatch();
+
+  
+  useEffect(() => {
+    ReactGA.event("page_view", {
+      page: "Doa",
+    });
+  }, []);
 
   useEffect(() => {
     dispatch(handleSearchDoa(''));

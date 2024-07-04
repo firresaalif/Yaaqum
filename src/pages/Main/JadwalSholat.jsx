@@ -3,11 +3,20 @@ import { Footer, Loading, SearchBar, Time } from '../../components/';
 import { useDispatch, useSelector } from 'react-redux';
 import { getGeolocation, getJadwalSholat, getLocation, handleSearchLocation, setError } from '../../features/jadwalSlice';
 import Error from '../Error';
+import ReactGA from "react-ga4";
+
 
 const JadwalSholat = () => {
   const dispatch = useDispatch();
   const { dataLokasi, isLoading, jadwalSholat, search, currentLocation, error, errorMessage, allCity, id } = useSelector((store) => store.jadwal);
   const [dataJadwal, setDataJadwal] = useState({});
+
+  
+  useEffect(() => {
+    ReactGA.event("page_view", {
+      page: "JadwalSholat",
+    });
+  }, []);
 
   useEffect(() => {
     if (navigator.geolocation) {

@@ -7,6 +7,8 @@ import { getSurat, setMusicBar } from '../../features/surat';
 import { useEffect, useRef } from 'react';
 import { getDoa } from '../../features/doa';
 import { getAllCity } from '../../features/jadwalSlice';
+import ReactGA from "react-ga4";
+
 
 const SharedLayout = () => {
   const { isActive, currentSurat } = useSelector((store) => store.surat);
@@ -22,6 +24,13 @@ const SharedLayout = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
+  
+
+  useEffect(() => {
+    ReactGA.event("page_view", {
+      page: "SharedLayout",
+    });
+  }, []);
   useEffect(() => {
     dispatch(getSurat());
     dispatch(getDoa());

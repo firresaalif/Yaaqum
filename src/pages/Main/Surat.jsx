@@ -2,10 +2,18 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { SearchBar, DropDownMurottal, Loading, OneSurat, PaginationSurat, Footer } from '../../components';
 import { getSurat, handleSearchSurat, searchSurat } from '../../features/surat';
+import ReactGA from "react-ga4";
+
 
 const Surat = () => {
   const { isLoading, surat, lastPage, firstPage, isActive, types, search, allSurat } = useSelector((store) => store.surat);
-  const dispatch = useDispatch();
+  const dispatch = useDispatch(); 
+  
+  useEffect(() => {
+    ReactGA.event("page_view", {
+      page: "Surat",
+    });
+  }, []);
 
   useEffect(() => {
     dispatch(handleSearchSurat(''));

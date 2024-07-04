@@ -2,6 +2,11 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { Surat, Doa, JadwalSholat, SharedLayout } from './pages/Main';
 import { Landing, Error } from './pages';
 import OpenSurat from './components/OpenSurat';
+import ReactGA from "react-ga4";
+
+const GA_MEASUREMENT_ID = "G-MB2XC1PZDH";
+ReactGA.initialize(GA_MEASUREMENT_ID);
+
 
 function App() {
   return (

@@ -4,11 +4,18 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getTafsir } from '../../features/surat';
 import OneTafsir from '../../components/OneTafsir';
 import { motion } from 'framer-motion';
+import ReactGA from "react-ga4";
+
 
 const Tafsir = () => {
   const { tafsir, openSurat } = useSelector((store) => store.surat);
   const dispatch = useDispatch();
 
+  useEffect(() => {
+    ReactGA.event("page_view", {
+      page: "Tafsir",
+    });
+  }, []);
   useEffect(() => {
     dispatch(getTafsir(openSurat.nomor));
   }, []);
